@@ -2,7 +2,7 @@ package io.zipcoder.pets;
 
 import java.util.ArrayList;
 
-public   class Pet {
+public  class Pet {
     String name;
     int howMany;
     String breed;

@@ -4,6 +4,7 @@ import io.zipcoder.pets.Pet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class User {
@@ -18,16 +19,26 @@ public class User {
         int numberOfPets = 0;
         String kindaPet = "";
         String namesofpet = "";
-        try {
-            System.out.println("How many pets do you have?");
+        boolean isNotValid=true;
 
 
-            numberOfPets = scanner.nextInt();
-            pet.setHowMany(numberOfPets);
-        } catch (NumberFormatException e) {
-            System.out.println("INVALID INPUT");
-        }
-        try {
+       do {
+           try {
+               System.out.println("How many pets do you have?");
+               numberOfPets = scanner.nextInt();
+               pet.setHowMany(numberOfPets);
+
+           } catch (InputMismatchException e) {
+               System.out.println("INVALID INPUT, TRY AGAIN");
+              scanner.next();
+
+
+
+
+           }}
+           while (numberOfPets < 1) ;
+
+           try {
             System.out.println("what kinda of pet is it");
             int counter = 0;
             while (counter <= numberOfPets) {

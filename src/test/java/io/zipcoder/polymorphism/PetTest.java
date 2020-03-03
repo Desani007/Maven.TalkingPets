@@ -1,61 +1,34 @@
 package io.zipcoder.polymorphism;
+import io.zipcoder.pets.Bird;
+import io.zipcoder.pets.Cat;
+import io.zipcoder.pets.Dog;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PetTest {
-    @Test
-    public void testMultiplePets(){
-        //given
-        Dog newDog = Dog.new("fido");
-        Cat newCat = Cat.new("tom");
-        Rabbit newRabbit = Rabbit.new("Roger");
 
-        //when
-        boolean isDog = newDog != null;
-        boolean isCat = newCat != null;
-        boolean isRabbit = newRabbit != null;
-
-        //then
-        Assert.assertTrue(isDog);
-        Assert.assertTrue(isCat);
-        Assert.assertTrue(isRabbit);
-
-    }
     @Test
     public void testSpeak(){
         //given
-        Dog newDog = Dog.new("fido");
-        Cat newCat = Cat.new("tom");
-        Rabbit newRabbit = Rabbit.new("Roger");
+        Dog newDog = new Dog();
+        Cat newCat =  new Cat  ();
+        Bird newBird = new Bird();
         String dogBark = "Woof!";
         String catMeow = "Meow!";
-        String rabbitNoise = "Rabbit Noise";
+        String birdNoise = "Bird Noise";
 
         //when
-        String dogSound = Dog.speak();
-        String catSound = Cat.speak();
-        String rabbitSound = Rabbit.speak();
+        String dogSound = newDog.speak(dogBark);
+        String catSound = newCat.speak(catMeow);
+        String birdSound = newBird.speak(birdNoise);
 
         //then
         Assert.assertEquals(dogBark, dogSound);
         Assert.assertEquals(catMeow, catSound);
-        Assert.assertEquals(rabbitNoise, rabbitSound);
+        Assert.assertEquals(birdSound, birdNoise);
 
     }
 
-    @Test
-    public void testPetName(){
-        // given
-        String expected = "Petster";
-        Pet pet = Pet.new(expected);
 
-
-        //when
-        String actual = Pet.getName();
-
-        //then
-        Assert.assertEquals(expected, actual);
-
-    }
 
 }
